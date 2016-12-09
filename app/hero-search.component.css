@@ -1,0 +1,15 @@
+.search-result{
+  background-color: white;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  cursor: pointer;
+  width:195px;
+  height: 20px;
+  padding: 5px;
+}
+
+#search-box{
+  width: 200px;
+  height: 20px;
+}

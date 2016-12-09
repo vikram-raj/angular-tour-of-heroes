@@ -9,19 +9,7 @@ import { HeroService } from './hero.service';
 @Component({
     moduleId: module.id,
     selector: 'my-hero-detail',
-    template: `
-        <div *ngIf="hero">
-            <h2>{{hero.name}} details!</h2>
-            <div>
-                <label>id: </label>{{hero.id}}
-            </div>
-            <div>
-                <label>name: </label>
-                <input [(ngModel)]="hero.name" placeholder="name"/>
-            </div>
-        </div>
-        <button (click)="goBack()">Back</button>    
-    `,
+    templateUrl: 'hero-detail.component.html',
     styleUrls: ['hero-detail.component.css']
 })
 
@@ -38,6 +26,11 @@ export class HeroDetailComponent {
         this.route.params
             .switchMap((params: Params) => this.heroService.getHero(+params['id']))
             .subscribe(hero => this.hero = hero);
+    }
+
+    save(): void {
+        this.heroService.update(this.hero)
+                        .then(() => this.goBack());
     }
 
     goBack(): void{
